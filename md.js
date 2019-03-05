@@ -7,7 +7,7 @@ const markdownLinkExtractor = require('markdown-link-extractor');
 const mdLinks = (routeMD, option) => {
     
     let stats = fs.statSync(routeMD);
-    extension = path.extname(routeMD)
+    extension = path.extname(routeMD) //saca la extension del archivo 
     
     if (extension === ".md") {
         
@@ -22,7 +22,7 @@ const mdLinks = (routeMD, option) => {
             const arrPromise = fetch(links[i])
             .then(res => {
                 if (option === "--stats") {
-                    total= `${line}`
+                    total= `${"Total:"+line}`
                             
                     return total
                 }else  if (option === "--validate") {
@@ -64,7 +64,7 @@ const mdLinks = (routeMD, option) => {
         })
     }
     else {
-        console.log("El archivo tine que ser formato .md ")
+        console.log("El archivo tiene que ser formato .md ")
     }
 }
 module.exports = mdLinks;
